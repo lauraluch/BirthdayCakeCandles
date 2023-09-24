@@ -37,4 +37,14 @@ class BirthdayCakeCandlesTest {
         final BirthdayCakeCandles sut = new BirthdayCakeCandles();
         assertTrue(sut.getAmountOfBlownOutCandles(age, candleHeights) > 1);
     }
+
+    @Test
+    void shouldThrowExceptionIfAgeIsANegativeNumber() {
+        int age = -2;
+        List<Integer> candleHeights = new ArrayList<>(Arrays.asList(12, 3));
+        final BirthdayCakeCandles sut = new BirthdayCakeCandles();
+        assertThrows(IllegalArgumentException.class, () -> {
+            sut.getTallestCandle(age, candleHeights);
+        });
+    }
 }
