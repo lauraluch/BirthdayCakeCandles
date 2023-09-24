@@ -50,11 +50,11 @@ class BirthdayCakeCandlesTest {
 
     @Test
     void shouldThrowExceptionIfCandleHeightIsANegativeNumber() {
-        int age = -2;
-        List<Integer> candleHeights = new ArrayList<>(Arrays.asList(1, 2));
+        int age = 3;
+        List<Integer> candleHeights = new ArrayList<>(Arrays.asList(1, 2, -2));
         final BirthdayCakeCandles sut = new BirthdayCakeCandles(age, candleHeights);
         assertThrows(IllegalArgumentException.class, () -> {
-            sut.validateAge();
+            sut.validateCandleHeightsValues();
         });
     }
 }
