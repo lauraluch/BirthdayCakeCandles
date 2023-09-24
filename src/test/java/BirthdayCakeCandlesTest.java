@@ -29,4 +29,12 @@ class BirthdayCakeCandlesTest {
             sut.getTallestCandle(age, candleHeights);
         });
     }
+
+    @Test
+    void shouldAmountOfBlownOutCandlesBeMoreThanOne() {
+        int age = 7;
+        List<Integer> candleHeights = new ArrayList<>(Arrays.asList(12, 3, 5, 8, 2, 3, 12));
+        final BirthdayCakeCandles sut = new BirthdayCakeCandles();
+        assertTrue(sut.getAmountOfBlownOutCandles(age, candleHeights) > 1);
+    }
 }

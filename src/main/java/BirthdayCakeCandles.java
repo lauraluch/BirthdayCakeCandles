@@ -12,7 +12,8 @@ public class BirthdayCakeCandles {
         return tallestCandle;
     }
 
-    public int getAmountOfBlownOutCandles(int tallestCandle, int age, List<Integer> candleHeights){
+    public int getAmountOfBlownOutCandles(int age, List<Integer> candleHeights){
+        int tallestCandle = getTallestCandle(age, candleHeights);
         int amountOfCandlesBlownOut = 0;
         for (int counter = 0; counter < age; counter++) {
             if (candleHeights.get(counter) == tallestCandle) {
