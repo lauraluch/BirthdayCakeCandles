@@ -14,8 +14,8 @@ class BirthdayCakeCandlesTest {
     void shouldTallestCandleBeTheHighestNumberOfList() {
         int age = 5;
         List<Integer> candleHeights = new ArrayList<>(Arrays.asList(1, 3, 5, 9, 7));
-        final BirthdayCakeCandles sut = new BirthdayCakeCandles();
-        final int obtained = sut.getTallestCandle(age, candleHeights);
+        final BirthdayCakeCandles sut = new BirthdayCakeCandles(age, candleHeights);
+        final int obtained = sut.getTallestCandle();
         assertEquals(9, obtained);
     }
 
@@ -23,10 +23,10 @@ class BirthdayCakeCandlesTest {
     void shouldThrowExceptionIfListSizeIsLessThanAge() {
         int age = 5;
         List<Integer> candleHeights = new ArrayList<>(Arrays.asList(1, 3, 5));
-        final BirthdayCakeCandles sut = new BirthdayCakeCandles();
+        final BirthdayCakeCandles sut = new BirthdayCakeCandles(age, candleHeights);
 
         assertThrows(IndexOutOfBoundsException.class, () -> {
-            sut.getTallestCandle(age, candleHeights);
+            sut.getTallestCandle();
         });
     }
 
@@ -34,17 +34,17 @@ class BirthdayCakeCandlesTest {
     void shouldAmountOfBlownOutCandlesBeMoreThanOne() {
         int age = 7;
         List<Integer> candleHeights = new ArrayList<>(Arrays.asList(12, 3, 5, 8, 2, 3, 12));
-        final BirthdayCakeCandles sut = new BirthdayCakeCandles();
-        assertTrue(sut.getAmountOfBlownOutCandles(age, candleHeights) > 1);
+        final BirthdayCakeCandles sut = new BirthdayCakeCandles(age, candleHeights);
+        assertTrue(sut.getAmountOfBlownOutCandles() > 1);
     }
 
     @Test
     void shouldThrowExceptionIfAgeIsANegativeNumber() {
         int age = -2;
-        List<Integer> candleHeights = new ArrayList<>(Arrays.asList(12, 3));
-        final BirthdayCakeCandles sut = new BirthdayCakeCandles();
+        List<Integer> candleHeights = new ArrayList<>(Arrays.asList(1, 2));
+        final BirthdayCakeCandles sut = new BirthdayCakeCandles(age, candleHeights);
         assertThrows(IllegalArgumentException.class, () -> {
-            sut.getTallestCandle(age, candleHeights);
+            sut.validateAge();
         });
     }
 }
