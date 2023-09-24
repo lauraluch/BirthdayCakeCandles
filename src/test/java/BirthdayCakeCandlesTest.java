@@ -1,3 +1,4 @@
+import com.sun.jdi.InvalidTypeException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -19,6 +20,13 @@ class BirthdayCakeCandlesTest {
     }
 
     @Test
-    void getAmountOfBlownOutCandles() {
+    void shouldThrowExceptionIfListSizeIsLessThanAge() {
+        int age = 5;
+        List<Integer> candleHeights = new ArrayList<>(Arrays.asList(1, 3, 5));
+        final BirthdayCakeCandles sut = new BirthdayCakeCandles();
+
+        assertThrows(IndexOutOfBoundsException.class, () -> {
+            sut.getTallestCandle(age, candleHeights);
+        });
     }
 }
