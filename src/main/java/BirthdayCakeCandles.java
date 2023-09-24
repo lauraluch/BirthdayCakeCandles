@@ -16,6 +16,14 @@ public class BirthdayCakeCandles {
         }
     }
 
+    public void validateCandleHeightsValues() {
+        for (int counter = 0; counter < candleHeights.size(); counter++) {
+            if (candleHeights.get(counter) <= 0){
+                throw new IllegalArgumentException("The candle heights must be more than zero.");
+            }
+        }
+    }
+
     public int getTallestCandle() {
         int tallestCandle = candleHeights.get(0);
         for (int counter = 0; counter < age; counter++) {
