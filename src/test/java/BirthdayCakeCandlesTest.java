@@ -39,6 +39,16 @@ class BirthdayCakeCandlesTest {
     }
 
     @Test
+    void shouldAmountOfBlownOutCandlesBeThree() {
+        int age = 8;
+        List<Integer> candleHeights = new ArrayList<>(Arrays.asList(
+                12, 8, 3, 10, 12, 7, 3, 12
+        ));
+        final BirthdayCakeCandles sut = new BirthdayCakeCandles(age, candleHeights);
+        assertEquals(3, sut.getAmountOfBlownOutCandles());
+    }
+
+    @Test
     void shouldThrowExceptionIfAgeIsANegativeNumber() {
         int age = -2;
         List<Integer> candleHeights = new ArrayList<>(Arrays.asList(1, 2));
